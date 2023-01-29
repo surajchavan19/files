@@ -23,7 +23,7 @@ cloudinary.config({
 app.post("/upload", async (req, res) => {
   const image = req.body.image;
   console.log(image);
-  console.log(req.body);
+
   try {
     if (image) {
       const uploadRes = await cloudinary.uploader.upload(image, {

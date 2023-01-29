@@ -1,17 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [productImg, setProductImg] = useState("");
-
-  console.log(productImg);
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
-    TransformFile(file);
-  };
-
   const TransformFile = (file) => {
     const reader = new FileReader();
     if (file) {
@@ -23,17 +15,28 @@ function App() {
       setProductImg("");
     }
   };
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    // console.log(file);
+    TransformFile(file);
+  };
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("file", productImg.data);
-    console.log(formData);
-    console.log("sui");
-    await fetch("http://localhost:3000/upload", {
-      method: "POST",
-      headers: { "Content-Type": "multipart/form-data" },
-      body: { Name: "Hello" },
-    });
+    try {
+      const response = await axios.post("http://localhost:3000/upload", {
+        image: productImg,
+      });
+
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+
+    // await fetch("http://localhost:3000/upload", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "multipart/form-data" },
+    //   body: { Name: "Hello" },
+    // });
   };
 
   return (
