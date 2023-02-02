@@ -6,6 +6,8 @@ import Dictaphone from "./Dictaphone";
 
 export const Upload = () => {
   const [productImg, setProductImg] = useState("");
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   let navigate = useNavigate();
 
   const TransformFile = (file) => {
@@ -30,8 +32,10 @@ export const Upload = () => {
     e.preventDefault();
     console.log("hello");
     try {
-      const response = await axios.post("http://localhost:3000/upload1", {
+      const response = await axios.post("http://localhost:3000/report", {
         image: productImg,
+        title: title,
+        desc: desc,
       });
       if (response.status === 200) {
         navigate("/upload");
@@ -58,6 +62,19 @@ export const Upload = () => {
           accept="*"
           onChange={handleImageUpload}
         />
+        <input
+          placeholder="enter title"
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+        />
+        <input
+          placeholder="enter desc"
+          onChange={(e) => {
+            setDesc(e.target.value);
+          }}
+        />
+
         <input type="submit" value="Submit" />
       </form>
       <img src={productImg} alt="" width={100} height={100} />

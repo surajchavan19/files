@@ -20,12 +20,10 @@ const UserSchema = new mongoose.Schema({
   },
   interestedJob: {
     type: String,
-    required: true,
+    // required: true,
   },
-  //   searchHistory: {
-  //     type: String,
-  //     required: true,
-  //   },
+
+  searchHistory: [String],
 });
 
 module.exports = new mongoose.model("User", UserSchema);
