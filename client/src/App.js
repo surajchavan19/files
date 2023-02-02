@@ -12,6 +12,8 @@ import Dictaphone from "./pages/Dictaphone";
 import { Finger } from "./pages/Finger";
 import { Jobs } from "./pages/Jobs";
 import { Resume } from "./pages/Resume";
+import { Schemes } from "./pages/Schemes";
+import { Maps } from "./pages/Maps";
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/finger" element={<Finger />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/schemes" element={<Schemes />} />
+          <Route path="/maps" element={<Maps />} />
         </Routes>
       </BrowserRouter>
     </div>

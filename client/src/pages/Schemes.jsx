@@ -1,13 +1,14 @@
+import React, { useState } from "react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export const Jobs = () => {
-  const [jobData, setjobData] = useState([]);
+export const Schemes = () => {
+  const [schemeData, setSchemeData] = useState([]);
   const options = {
     method: "POST",
     url: "https://all-serp.p.rapidapi.com/all-serp-website",
     params: {
-      keyword: "jobs for pwd people",
+      keyword: "government schemes for person with disability",
       location: "in",
       language: "en",
       search_engine: "google",
@@ -27,7 +28,7 @@ export const Jobs = () => {
       axios
         .request(options)
         .then(function (response) {
-          setjobData(response.data.organic_results);
+          setSchemeData(response.data.organic_results);
         })
         .catch(function (error) {
           console.error(error);
@@ -35,15 +36,14 @@ export const Jobs = () => {
     };
     fetchData();
   }, []);
-  console.log(jobData);
+  console.log(schemeData);
   return (
     <div>
-      {jobData.map((data) => {
+      {schemeData.map((data) => {
         return (
           <>
             <h2>{data.title}</h2>
             <a href={data.url}>{data.url}</a>
-            <h3>Location:India</h3>
           </>
         );
       })}
