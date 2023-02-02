@@ -11,6 +11,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dictaphone from "./pages/Dictaphone";
 import { Finger } from "./pages/Finger";
 import Blog from "./pages/Blog";
+import { Jobs } from "./pages/Jobs";
+import { Resume } from "./pages/Resume";
+
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/finger" element={<Finger />} />
+          <Route path="/jobs" element={<Jobs />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </BrowserRouter>
     </div>
