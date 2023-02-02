@@ -10,6 +10,7 @@ import { Home } from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dictaphone from "./pages/Dictaphone";
 import { Finger } from "./pages/Finger";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -17,11 +18,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/dict" element={<Dictaphone />} />
           <Route path="/images" element={<Images />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/finger" element={<Finger />} />
         </Routes>
       </BrowserRouter>
