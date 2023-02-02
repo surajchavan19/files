@@ -101,13 +101,14 @@ code {
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   border:1px solid black !important;
+  border-radius: 15px;
 }
 
 .button-style{
   background-color: white !important;
   color:black !important;
   border:1px solid black !important;
-
+  border-radius: 15px;
 }
 
 .text-style-blog{

@@ -16,7 +16,7 @@ export const Home = () => {
 
   return (
     <div>
-      <Navbar />
+
 
       <div className="container-fluid">
         <div className="row">
@@ -172,10 +172,9 @@ export const Home = () => {
 <br></br>
 <br></br>
 <br></br>
-<br></br>
-<br></br>
 
-  <Footer/>
+
+
     </div>
   );
 };

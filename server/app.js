@@ -87,16 +87,20 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
   console.log(req.body);
   try {
-    const newUser = await User.create(req.body);
-    res.status(201).json({
-      status: "success",
-      token,
-      data: {
-        user: newUser,
-      },
-    });
+    const newUser = new User({...req.body});
+    await newUser.save();
+
+    console.log(newUser);
+    res.json(newUser);
+    // res.status(201).json({
+    //   status: "success",
+    //   data: {
+    //     user: newUser,
+    //   },
+    // });
+
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 app.post("/customJobPost", async (req, res) => {
@@ -126,8 +130,11 @@ app.post("/customJobPost", async (req, res) => {
     });
 });
 app.post("/login", async (req, res) => {
+ 
+  console.log(req.body);
   try {
     const { email, password } = req.body;
+
     if (!email || !password) {
       return res
         .status(400)
@@ -135,14 +142,18 @@ app.post("/login", async (req, res) => {
     }
 
     const user = await User.findOne({ email: email });
-    console.log(user);
+  
     if (!user) {
       return res.status(401).json({ message: "User not found" });
     }
     if (user.email === email && user.password === password) {
-      res.status(200).json({
-        status: "success",
-      });
+      console.log("user")
+      // res.status(200).json({
+      //   status: "success",
+      // });
+      res.json({status: "success",statusCode:200 })
+
+
     } else {
       return res.status(401).json({ message: "incorrect  email or password" });
     }
@@ -183,14 +194,13 @@ app.post("/newBlog", async (req, res) => {
     });
 });
 //to get blogs based on key(genre) filtering
-app.get("/blogData", async (req, res) => {
-  console.log(req);
-  // const genre = req.body.genre;
-  const genre = "horror";
+app.post("/blogData", async (req, res) => {
+  const genre = req.body.genre;
+  // const genre = "horror";
   const blogReq = await blog.find({ Genre: genre });
   res.json(blogReq);
 });
 
-app.listen(3000, (req, res) => {
+app.listen(4000, (req, res) => {
   console.log("server started");
 });

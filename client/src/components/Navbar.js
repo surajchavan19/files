@@ -15,36 +15,36 @@ const Navbar = () => {
 
     const [showMediaIcons, setShowMediaIcons] = useState(false);
 
-  return (
-    <section className="header ">
-        <Link to="/" className="margin-left-500 d-flex" style={{ marginLeft: "1rem" }}>
-          <img src={logo} alt="errorlogo" ></img>
-          
-        </Link>
-        
+    return (
+        <section className="header ">
+            <Link to="/" className="margin-left-500 d-flex" style={{ marginLeft: "1rem" }}>
+                <img src={logo} alt="errorlogo" ></img>
 
-        <nav className={showMediaIcons ? "navbar active" : "navbar"}>
-          <ul className="menu">
-            <li>
-              <div className="dropdown">
-                <Link to="/" className="dropbtn d-flex drop-link">
-                  Business-Guide <MdArrowDropDown className="mt-1" />
-                </Link>
-                <div className="dropdown-content">
-                  <li>
-                    <Link to="/where">Where</Link>{" "}
-                  </li>
-                  <li>
-                    <Link to="/how">How</Link>{" "}
-                  </li>
-                  <li>
-                    <Link to="/why">Why</Link>{" "}
-                  </li>
-                </div>
-              </div>
-            </li>
+            </Link>
 
-            <li>
+
+            <nav className={showMediaIcons ? "navbar active" : "navbar"}>
+                <ul className="menu">
+                    <li>
+                        <div className="dropdown">
+                            <Link to="/" className="dropbtn d-flex drop-link">
+                                Options <MdArrowDropDown className="mt-1" />
+                            </Link>
+                            <div className="dropdown-content">
+                                <li>
+                                    <Link to="/where">Public Place Issue</Link>{" "}
+                                </li>
+                                <li>
+                                    <Link to="/how">Create Resume</Link>{" "}
+                                </li>
+                                <li>
+                                    <Link to="/why">Why</Link>{" "}
+                                </li>
+                            </div>
+                        </div>
+                    </li>
+
+                    {/* <li>
               <div className="dropdown">
                 <Link to="/" className="dropbtn d-flex drop-link">
                   Licensing <MdArrowDropDown className="mt-1" />
@@ -89,34 +89,51 @@ const Navbar = () => {
                 </div>
               </div>
             </li>
-           
-            <li>
-              <Link to="/blog" className="drop-link">
-                Blog{" "}
-              </Link>{" "}
-            </li>
-            <li>
-            <Button className="button-style-2">Post a Job</Button>
-          </li>
-            <li>
-            <Button className="button-style">Login</Button>
-          </li>
-        
-          </ul>
 
-          <AiOutlineClose
-            className="display  mx-3"
-            onClick={() => setShowMediaIcons(false)}
-          />
-        </nav>
 
-        <div className="hamburger-menu ">
-          <button onClick={() => setShowMediaIcons(!showMediaIcons)}>
-            <GiHamburgerMenu className="icons " />
-          </button>
-        </div>
-      </section>
-  )
+  */}
+                    <li>
+                        <Link to="/Home" className="drop-link">
+                            Home{" "}
+                        </Link>{" "}
+                    </li>
+                    <li>
+                        <Link to="/training" className="drop-link">
+                            Training{" "}
+                        </Link>{" "}
+                    </li>
+                    <li>
+                        <Link to="/resume" className="drop-link">
+                            Create Resume{" "}
+                        </Link>{" "}
+                    </li>
+                    <li>
+                        <Link to="/blog" className="drop-link">
+                            Blog{" "}
+                        </Link>{" "}
+                    </li>
+                    <li>
+                        <Link to="/blog" className="button-style-2">Voice Navigator</Link>
+                    </li>
+                    <li>
+                        <Link to="/login" className="button-style">Login</Link>
+                    </li>
+
+                </ul>
+
+                <AiOutlineClose
+                    className="display  mx-3"
+                    onClick={() => setShowMediaIcons(false)}
+                />
+            </nav>
+
+            <div className="hamburger-menu ">
+                <button onClick={() => setShowMediaIcons(!showMediaIcons)}>
+                    <GiHamburgerMenu className="icons " />
+                </button>
+            </div>
+        </section>
+    )
 }
 
 export default Navbar

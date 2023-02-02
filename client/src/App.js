@@ -13,12 +13,16 @@ import { Finger } from "./pages/Finger";
 import Blog from "./pages/Blog";
 import { Jobs } from "./pages/Jobs";
 import { Resume } from "./pages/Resume";
+import Training from "./pages/Training";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
@@ -30,8 +34,10 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/finger" element={<Finger />} />
           <Route path="/jobs" element={<Jobs />} />
-          <Route path="/resume" element={<Resume />} />
+          <Route path="/resume" element={<Resume />} />1
+          <Route path="/training" element={<Training />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   );

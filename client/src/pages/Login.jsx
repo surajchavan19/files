@@ -10,35 +10,39 @@ import Footer from "../components/Footer";
 
 export const Login = () => {
    
-  const [username ,setUserName]=useState('');
+  const [email ,setUserName]=useState('');
   const [password ,setPassword]=useState('');
 
 
+  const navigation =useNavigate();
+
   const submitHandler = async (e) => {
     
-    if(username === "" || password===""){
+    if(email === "" || password===""){
       alert("pill fill data")
     }
-    console.log(username,password)
+    console.log(email,password)
 
     e.preventDefault();
 
     await axios
-      .post('/api/v3/inventory/batch/createBatch', {
-        username,
+      .post('http://localhost:4000/login', {
+        email,
         password
         
       })
       .then((res) => {
-        if (res.data.error) {
-          alert(res.data.message);
-        } else if (!res.data.error) {
-          alert(res.data.message);
-          window.location.reload();
+        if (res.status === 200) {
+          alert(res.data);
+          alert(res.data.status);
+          navigation("/home")
+        } else{
+          alert("Crediantial Invalid");
+          // window.location.reload();
         }
         return res;
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => console.log(err.message));
   };
 
 
@@ -46,7 +50,7 @@ export const Login = () => {
 
   return (
     <>
-      <Navbar />
+    
       <div className="container-fluid">
         <div className="row" style={{ marginTop: "-5rem" }}>
           <div className="col-md-6" >
@@ -60,7 +64,7 @@ export const Login = () => {
             <div  className="mt-3 login-left">
             <div className="input-div  mt-2">
         
-            <input className="input-filed"  type='text' name="username" placeholder="Enter Your Email" value={username} onChange={(e)=>{setUserName(e.target.value)}} /> <br></br>
+            <input className="input-filed"  type='text' name="username" placeholder="Enter Your Email" value={email} onChange={(e)=>{setUserName(e.target.value)}} /> <br></br>
             </div>
             <div className="input-div mt-2">
           
@@ -83,7 +87,7 @@ export const Login = () => {
       <br></br>
       <br></br>
       <br></br>
-      <Footer />
+     
     </>
   );
 };
