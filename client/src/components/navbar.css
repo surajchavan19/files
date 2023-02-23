@@ -1,0 +1,375 @@
+
+/* -----------Navbar style start-------- */
+:root {
+    --main-color: rgb(114 36 147);
+    --black: #222;
+    --white: #fff;
+    --light-black: #777;
+    --light-white: #fff9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --light-bg: #eee;
+    --border: .1rem solid var(--black);
+    --box-shadow: 1px 5px 10px 5px #ccc;
+    --box-shadow2: 10px 10px 10px 10px #ccc;
+    --box-shadow3: 0px 0px 5px 0px black;
+    --text-shadow: 0 1.5rem 3rem rgba(0, 0, 0, .3);
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    height: 6.5rem;
+
+    /* margin-top: 1rem; */
+    /* margin-bottom: 1rem; */
+    /* left: 0; */
+    background-color: white !important;
+    /* border-radius: 20px; */
+    /* right: 0; */
+    z-index: 999;
+    padding: 0% 5%;
+    display: flex;
+    margin-left: auto;
+    box-shadow: var(--box-shadow3);
+    margin-right: auto;
+    /* border: 1px solid rgb(218, 218, 218); */
+    align-items: center;
+
+    /* padding-top: 1rem;
+  padding-bottom: 1rem; */
+    justify-content: space-between;
+    /* padding-left: 2rem;
+  padding-right: 2rem; */
+    width: 100%;
+    text-transform: capitalize !important;
+}
+
+.header.active {
+    background-color: white !important;
+
+}
+
+
+
+.header .logo {
+    font-size: 2.3rem;
+    color: var(--black);
+    text-decoration: none;
+
+}
+
+@media (min-width: 1200px) {}
+
+
+
+.header .navbar .link {
+    font-size: 20px;
+    margin-left: 2rem !important;
+    text-transform: capitalize !important;
+    color: var(--black);
+    text-decoration: none;
+    cursor: pointer;
+
+
+}
+
+
+
+.navbar {
+
+    text-transform: capitalize !important;
+}
+
+
+
+@media(max-width:950px) {
+    .header {
+        position: relative;
+        height: 6rem;
+        justify-content: space-between !important;
+        padding: 0% !important;
+    }
+
+    .menu li {
+        display: block;
+
+        width: 100%;
+    }
+
+    .header .logo {
+        font-size: 2rem;
+        margin-top: -1.7rem;
+        margin-left: -2rem;
+    }
+
+    .dropdown-content {
+
+
+        font-weight: 500;
+        display: flex;
+        transition: 0.7s linear;
+        align-items: center;
+        text-decoration: none;
+        color: #f5f5f5;
+        font-size: 14px;
+
+
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 500px;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+
+
+    }
+
+    .link {
+        color: white !important;
+    }
+
+    .navbar.active {
+        margin-top: 1.5rem;
+        left: 0;
+        width: 95%;
+        border-radius: 10px;
+        margin-left: 0.3rem;
+
+        height: 20rem;
+        transition: all 0.5s ease;
+        z-index: 1;
+        background-color: var(--main-color);
+
+    }
+
+
+
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(25%, 50%);
+
+    }
+
+    .hamburger-menu {
+        display: block !important;
+        /* position: absolute; */
+        margin-top: -4rem !important;
+
+
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #121212;
+        z-index: 2;
+        margin-right: -3rem;
+    }
+
+    .drop-link:hover {
+        color: plum !important;
+        font-size: 17px;
+    }
+
+    .menu a {
+
+        
+        margin-top: 1rem;
+    }
+
+    .drop-link {
+        font-size: 17px;
+        color: white !important;
+    }
+
+
+    .icons {
+
+
+        background-color: var(--main-color);
+        color: var(--main-color) !important;
+        z-index: 999;
+
+    }
+}
+
+.icons2 {
+    border: 1px solid white;
+    margin-top: 0.5rem;
+    font-size: 40px !important;
+    color: wheat;
+    border-radius: 20px;
+    padding: 1%;
+    background-color: #918813;
+
+}
+
+
+.hamburger-menu {
+    display: none;
+
+}
+
+.display {
+    display: none;
+}
+
+
+.menu {
+    padding: 0;
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0rem !important;
+}
+
+.menu>li,
+menu>a {
+    display: inline-block;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #121212;
+    font-size: 18px;
+    display: block;
+    padding: 10px 1.3rem;
+}
+
+.menu a:hover {
+    color: var(--main-color);
+    /* font-weight: bold; */
+}
+
+ul {
+    list-style: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    border-radius: 5px;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: all 1s ease-in;
+}
+
+.dropdown-content2 {
+    transition: all 1s ease-in;
+    left: 100.5%;
+    width: 100%;
+    padding: 0;
+    border-radius: 5px;
+    display: none;
+    top: 0;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+@media (max-width:600px) {
+
+    .menu a {
+
+        font-weight: bold;
+        margin-top: 1rem;
+        font-size: 12px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 180px;
+        border-radius: 5px;
+        left: 0;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        transition: all 1s ease-in;
+    }
+
+    .dropdown-content2 {
+        transition: all 1s ease-in;
+        left: 100.5%;
+        width: 100%;
+        padding: 0;
+        border-radius: 5px;
+        display: none;
+        top: 0;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .margin-left-500 {
+        margin-right: -3rem !important;
+    }
+
+}
+
+
+.dropdown-content li:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+    /* Animation */
+}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+    transition: .10s linear;
+    /* Animation */
+}
+
+.dropdown-content2 li {
+    color: black;
+
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li {
+    color: black;
+
+    text-decoration: none;
+    display: block;
+}
+
+.dropbtn {
+
+    border: none;
+}
+
+
+
+
+/* -----------Navbar style end-------- */
